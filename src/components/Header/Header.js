@@ -37,7 +37,7 @@ export default function Header() {
                     alt="User settings"
                     img={avatar}
                     rounded={true}
-                    className="mx-2 border border-secondary"
+                    className="mx-2 border border-secondary h-8"
                   />
                 }
               >
