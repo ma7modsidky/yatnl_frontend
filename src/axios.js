@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseURL = "https://yatnl.herokuapp.com/api"
+const baseURL = "http://yatnl.pythonanywhere.com/api/";
 // const baseURL = 'http://127.0.0.1:8000/api/'
 
 
