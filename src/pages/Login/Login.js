@@ -1,14 +1,13 @@
 import React, {useState, useContext} from 'react'
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../axios';
+// import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext'
 
 
 export default function Login() {
     // For toggle between login and sign up page
     /////////////////////////////////////////////
-    let {login , err , setErr} = useContext(AuthContext)
-    const history = useNavigate();
+    let {login , err } = useContext(AuthContext)
+    // const history = useNavigate();
     // For controlling the login form and object.freeze is like a security measure
     const initialFormData = Object.freeze({
 		email: '',
@@ -75,6 +74,21 @@ export default function Login() {
               </div>
             </div>
 
+            {err ? (
+              <div>
+                {Object.keys(err).map((errr, index) => (
+                  <div
+                    key={index}
+                    class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                    role="alert"
+                  >
+                    <span class="font-medium">{errr} </span>
+                    {err[errr]}
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <input
@@ -93,13 +107,13 @@ export default function Login() {
               </div>
 
               <div class="text-sm">
-                <a
+                <button
                   href="#"
                   class="font-medium text-secondary hover:text-secondary"
                 >
                   {" "}
                   Forgot your password?{" "}
-                </a>
+                </button>
               </div>
             </div>
 

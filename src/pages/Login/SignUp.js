@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../axios";
-import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 
@@ -36,14 +35,15 @@ function SignUp() {
           password2: signUpData.password2,
         })
         .then((res) => {
-          navigate("/login", { replace: true });
           alert(
             "You have successfully created an account please login to continue"
           );
+          navigate("/login", { replace: true });
+          
         })
         .catch((err) => {
           setError(err.response.data);
-          console.log(error);
+          console.log(err.response.data);
         });
     };
   return (
@@ -137,7 +137,21 @@ function SignUp() {
               />
             </div>
           </div>
-
+          {error ? (
+            <div>
+              {Object.keys(error).map((err, index) => (
+                <div
+                  key={index}
+                  class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                  role="alert"
+                >
+                  <span class="font-medium">{err} </span>
+                  {error[err]}
+                </div>
+                //   <div key={index}>{error[err]}</div>
+              ))}
+            </div>
+          ) : null}
           {/* <div class="flex items-center justify-between">
             <div class="flex items-center">
               <input
@@ -183,20 +197,10 @@ function SignUp() {
                   />
                 </svg>
               </span>
-              Submit
+              Sign up
             </button>
           </div>
         </form>
-        {error ? (
-          <div>
-            {Object.keys(error).map((err, index) => (
-                <div key={index} class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                <span class="font-medium">{err} </span>{error[err]}
-                </div>
-            //   <div key={index}>{error[err]}</div>
-            ))}
-          </div>
-        ) : null}
         <div>
           <Link
             to="/login"

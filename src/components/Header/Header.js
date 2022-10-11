@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Navbar, Avatar, Dropdown, Button } from "flowbite-react";
+import React, {useContext } from "react";
+import { Navbar, Avatar, Dropdown } from "flowbite-react";
 
 
 import logo from "../../assets/images/logo.png";
@@ -37,40 +37,50 @@ export default function Header() {
                     alt="User settings"
                     img={avatar}
                     rounded={true}
-                    
+                    className="mx-2 border border-secondary"
                   />
                 }
               >
-                <Dropdown.Header>
-                  <span className="block text-sm">{user.username}</span>
-                  <span className="block truncate text-sm font-medium">
-                    {user.email}
-                  </span>
-                </Dropdown.Header>
-                <hr />
-                <Dropdown.Item>Invite a friend</Dropdown.Item>
-                <Dropdown.Item>Dashboard</Dropdown.Item>
-                <Dropdown.Item>New Leader</Dropdown.Item>
-                <Dropdown.Item>Earnings</Dropdown.Item>
-                <hr />
-                <Dropdown.Divider />
-                <Dropdown.Item>
-                  <button
-                    type="button"
-                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                    onClick={logout}
-                  >
-                    Log out
-                  </button>
-                </Dropdown.Item>
+                <div className="bg-white p-2 rounded-md">
+                  <Dropdown.Header className="bg-white">
+                    <span className="block text-sm ">{user.username}</span>
+                    <span className="block truncate text-sm font-medium ">
+                      {user.email}
+                    </span>
+                  </Dropdown.Header>
+                  <hr />
+                  <Link to="/Invite">
+                    <Dropdown.Item>Invite a friend</Dropdown.Item>
+                  </Link>
+                  <Link to="/Dashboard">
+                    <Dropdown.Item>Dashboard</Dropdown.Item>
+                  </Link>
+                  <Link to="/NewLeader">
+                    <Dropdown.Item>New Leader</Dropdown.Item>
+                  </Link>
+                  <Link to="/Earnings">
+                    <Dropdown.Item>Earnings</Dropdown.Item>
+                  </Link>
+                  <hr />
+                  <Dropdown.Divider />
+                  <Dropdown.Item>
+                    <button
+                      type="button"
+                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                      onClick={logout}
+                    >
+                      Log out
+                    </button>
+                  </Dropdown.Item>
+                </div>
               </Dropdown>
             </div>
           ) : (
             <div className="flex gap-1">
-              <div class="focus:outline-none text-white bg-secondary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-secondary dark:hover:bg-red-700 dark:focus:ring-red-900">
+              <div className="focus:outline-none text-white bg-secondary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-secondary dark:hover:bg-red-700 dark:focus:ring-red-900">
                 <Link to="/login">Login</Link>
               </div>
-              <div class="focus:outline-none text-white bg-secondary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-secondary dark:hover:bg-red-700 dark:focus:ring-red-900">
+              <div className="focus:outline-none text-white bg-secondary hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-secondary dark:hover:bg-red-700 dark:focus:ring-red-900">
                 <Link to="/signup">Sign Up</Link>
               </div>
               {/* <Link
@@ -99,14 +109,14 @@ export default function Header() {
         </div>
         {/* Desktop links */}
         <div
-          class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+          className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
           id="mobile-menu-2"
         >
-          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
               <Link
                 to="/"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Home
               </Link>
@@ -114,7 +124,7 @@ export default function Header() {
             <li>
               <Link
                 to="about"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 About
               </Link>
@@ -123,7 +133,7 @@ export default function Header() {
             <li>
               <Link
                 to="pricing"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Pricing
               </Link>
@@ -131,7 +141,7 @@ export default function Header() {
             <li>
               <Link
                 to="contact_us"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Contact
               </Link>
@@ -144,30 +154,18 @@ export default function Header() {
           <Navbar.Link href="about">About</Navbar.Link>
           <Navbar.Link href="/pricing">Pricing</Navbar.Link>
           <Navbar.Link href="/contact_us">Contact</Navbar.Link>
-          {user ? null : (
-            <li>
-              <Link
-                to="login"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Login
-              </Link>
-            </li>
-          )}
-          {user ? null : (
-            <li>
-              <Link
-                to="contact_us"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Sign up
-              </Link>
-            </li>
-          )}
+          {user ? null : <Navbar.Link href="/login">Login</Navbar.Link>}
+
           {user ? (
             <li>
               <div class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Logout
+                <button
+                  type="button"
+                  className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  onClick={logout}
+                >
+                  Log out
+                </button>
               </div>
             </li>
           ) : null}

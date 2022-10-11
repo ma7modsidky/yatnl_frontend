@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axiosInstance from '../axios';
@@ -32,8 +32,9 @@ export const AuthProvider = ({children}) => {
                 navigate("", { replace: true });
             })
             .catch((err)=>{
-                console.log(err)
-                setErr(err)
+                setErr(err.response.data);
+                console.log(err.response.data);
+                alert(err.response.data)
             })
                 
                 

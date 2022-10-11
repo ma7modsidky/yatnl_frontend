@@ -97,7 +97,7 @@ function Footer() {
             </li>
           </ul> */}
           <div class="text-gray-700 flex flex-col w-full">
-            <div class="inline-block py-2 px-3 text-secondary uppercase font-medium tracking-wide">
+            <div class="inline-block text-left py-2 px-3 text-secondary uppercase font-medium tracking-wide">
               Follow Us
             </div>
             <div class="flex pl-4 justify-start mt-2">
