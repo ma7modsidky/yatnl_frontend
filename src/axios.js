@@ -1,8 +1,8 @@
 import axios from 'axios'
-// const baseURL = 'https://blog-vital.herokuapp.com/api/'
-const baseURL = 'http://127.0.0.1:8000/api/'
 
-// let baseURL = 'https://blogvital.pythonanywhere.com/api/'
+const baseURL = "https://yatnl.pythonanywhere.com/api/";
+
+
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
